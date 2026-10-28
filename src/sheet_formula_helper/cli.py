@@ -7,7 +7,7 @@ import sys
 from typing import Optional, Sequence
 
 from .client import FormulaClient, FormulaClientError
-from .config import Config, load_config, save_config
+from .config import CONFIG_FILE, Config, load_config, save_config
 from .snippets import Snippet, SnippetStore, ensure_default_snippets
 
 
@@ -47,7 +47,7 @@ def cmd_config(args: argparse.Namespace) -> int:
         print(f"Endpoint: {config.endpoint}")
         print(f"Model: {config.model}")
         print(f"Temperature: {config.temperature}")
-        print(f"Config file: {config.__class__.__name__}")
+        print(f"Config file: {CONFIG_FILE}")
         return 0
     if changed:
         save_config(config)
